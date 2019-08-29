@@ -1,10 +1,11 @@
 # CPPet
+
 C++ Pet Game
 
 Compile on Linux:
 
-g++ -O -Wall Pet.cpp -o Pet
+g++ -O -Wall ./src/CPPet.cpp -o ./build/CPPet
 
 Then run:
 
-./Pet
+./build/CPPet
