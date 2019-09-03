@@ -8,6 +8,7 @@ int main() {
 
   Cat cat;
   cout << cat.getName() << endl;
+  cout << cat.getMood() << endl;
 
   char input;
 
