@@ -1,10 +1,10 @@
-#include <iostream>
+//#include <iostream>
 #include <sstream>    // for stringstream
 #include <algorithm>  // for std::find
 #include <iterator>   // for std::begin, std::end
 #include "Cat.h"
 
-using namespace std;
+//using namespace std; // already included in header file!
 
 Cat::Cat() {
   name = "Meaw";
@@ -12,6 +12,8 @@ Cat::Cat() {
   hunger = 50;
   clean = 50;
   energy = 100.0;
+  treat1 = 2;
+  treat2 = 2;
 }
 
 Cat::Cat(string name) {
@@ -20,6 +22,8 @@ Cat::Cat(string name) {
   hunger = 50;
   clean = 50;
   energy = 100.0;
+  treat1 = 2;
+  treat2 = 2;
 }
 
 Cat::Cat(string name, short mood, short hunger, short clean, double energy) {
@@ -28,6 +32,8 @@ Cat::Cat(string name, short mood, short hunger, short clean, double energy) {
   this->hunger = hunger;
   this->clean = clean;
   this->energy = energy;
+  treat1 = 2;
+  treat2 = 2;
 }
 
 Cat::~Cat() {
@@ -39,11 +45,11 @@ void Cat::setName() {
   cin >> name;
 }
 
-string Cat::getName() {
+string Cat::getName() const {
   return name;
 }
 
-string Cat::getMood() {
+string Cat::getMood() const {
   stringstream ss;
   ss << name;
   ss << "'s happiness: ";
@@ -69,7 +75,7 @@ void Cat::doAction(char action) {
         play(choice);
       break;
       case 'f':
-
+        eat(treat1);
       break;
       case 'c':
 
@@ -126,4 +132,9 @@ void Cat::play(char game) {
     // output outcome:
     cout << gameOutcome << endl;
   }
+}
+
+void Cat::eat(int &food) {
+  // consume whatever type of food was given:
+  food--;
 }
